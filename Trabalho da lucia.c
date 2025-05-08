@@ -1,0 +1,287 @@
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <locale.h>
+
+#include <time.h>
+
+
+
+int main()
+
+{
+
+    int JogarNovamente=1;
+
+    do{
+
+    setlocale(LC_ALL, "portuguese");
+
+    srand(time(NULL));
+
+
+
+    int codigo, senha1, senha2, senha3, senha4, n1, n2, n3, n4;
+
+    int tentativa, chute;
+
+    int palpite1, palpite2, palpite3, palpite4;
+
+    int acertos;
+
+    int acerto1 = 0, acerto2 = 0, acerto3 = 0, acerto4 = 0;
+
+
+
+    codigo = (rand() % 9000) + 1000;
+
+
+
+    senha1 = (codigo / 1000);
+
+    senha2 = (codigo / 100) % 10;
+
+    senha3 = (codigo / 10) % 10;
+
+    senha4 = (codigo % 10);
+
+
+
+    printf("\t\t\t\t--------Bem Vindo Ao Jogo Secreto!--------");
+
+    printf("\n  |-------------------------------------------------------------------------------------------------------|");
+
+    printf("\n  |Você irá ter no máximo 10 tentativas. Seu objetivo é acertar a sequência de números entre [1000 e 9999]|");
+
+    printf("\n  |                       A partir da 5a tentativa, o jogo irá te entregar dicas.                         |");
+
+    printf("\n  |-------------------------------------------------------------------------------------------------------|");
+
+    printf("\n\n\t\t\t\t\t\tBoa Sorte!");
+
+
+
+    for (tentativa = 0; tentativa < 10; tentativa++) {
+
+        printf("\nTentativa %d: ", tentativa + 1);
+
+        scanf("%d", &chute);
+
+
+
+        palpite1 = chute / 1000;
+
+        palpite2 = (chute / 100) % 10;
+
+        palpite3 = (chute / 10) % 10;
+
+        palpite4 = chute % 10;
+
+
+
+        acertos = 0;
+
+        printf("Resultado: ");
+
+
+
+if (palpite1 == senha1) {
+
+    acerto1 = 1;
+
+}
+
+if (acerto1 == 1) {
+
+    printf("[%d]", senha1);
+
+    acertos++;
+
+} else {
+
+    printf("[_]");
+
+}
+
+
+
+if (palpite2 == senha2) {
+
+    acerto2 = 1;
+
+}
+
+if (acerto2 == 1) {
+
+    printf("[%d]", senha2);
+
+    acertos++;
+
+} else {
+
+    printf("[_]");
+
+}
+
+
+
+
+
+if (palpite3 == senha3) {
+
+    acerto3 = 1;
+
+}
+
+if (acerto3 == 1) {
+
+    printf("[%d]", senha3);
+
+    acertos++;
+
+} else {
+
+    printf("[_]");
+
+}
+
+
+
+
+
+if (palpite4 == senha4) {
+
+    acerto4 = 1;
+
+}
+
+if (acerto4 == 1) {
+
+    printf("[%d]", senha4);
+
+    acertos++;
+
+} else {
+
+    printf("[_]");
+
+}
+
+        printf("\nVocê acertou %d dígitos!\n", acertos);
+
+
+
+        if (acertos==4){
+
+            printf("Parabéns! Você adivinhou a senha corretamente!\n");
+
+            return 0;
+
+        }
+
+
+
+        if (tentativa>=4){
+
+            printf("\nDicas:\n");
+
+            if (senha1 % 2==0) {
+
+                printf("• O 1º dígito é par\n");
+
+            } else{
+
+                printf("• O 1º dígito é ímpar\n");
+
+            }
+
+
+
+            if (tentativa>=5){
+
+                if (senha2%2==0){
+
+                    printf("• O 2º dígito é par\n");
+
+                } else {
+
+                    printf("• O 2º dígito é ímpar\n");
+
+                }
+
+            }
+
+
+
+            if (tentativa>=6){
+
+                if (senha3%2==0){
+
+                    printf("• O 3º dígito é par\n");
+
+                } else {
+
+                    printf("• O 3º dígito é ímpar\n");
+
+                }
+
+            }
+
+
+
+            if (tentativa>=7){
+
+                if (senha4%2==0){
+
+                    printf("• O 4º dígito é par\n");
+
+                } else {
+
+                    printf("• O 4º dígito é ímpar\n");
+
+                }
+
+            }
+
+
+
+            if (chute>codigo){
+
+                printf("• Seu chute é MAIOR que o código\n");
+
+            } else {
+
+                printf("• Seu chute é MENOR que o código\n");
+
+            }
+
+        }
+
+    }
+
+
+
+    printf("\nVocê usou todas as tentativas! O código correto era: %d%d%d%d\n", senha1, senha2, senha3, senha4);
+
+    printf("Fim de jogo.\n");
+
+     printf("\nDeseja jogar novamente? (1 = Sim / 0 = Não): ");
+
+
+
+        scanf("%d", &JogarNovamente);
+
+
+
+        system("cls || clear");
+
+
+
+    } while (JogarNovamente == 1);
+
+    printf("\nObrigado por jogar, até a próxima!");
+
+    return 0;
+
+}
