@@ -1,17 +1,16 @@
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define tam 10
+#define tam 10 
 
 int main()  {
 
 int i, j, A[tam],cont;
-srand(time(NULL));
+srand(time(NULL));        
 for(i=0;i<tam;i++)
     {
-        A[i]=rand()%10;
+        A[i]=rand()%10;            \\gerador de numeros aleatorios 
     }
 
     for(i=0;i<tam;i++) {
