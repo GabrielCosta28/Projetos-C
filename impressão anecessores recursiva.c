@@ -24,7 +24,7 @@ int ordemcrescente(int n)
 int main ()
 {
     int n1;
-    printf("DIGITE UM NUMERO PARA ORDENAR SEUS ANTECESSORES EM FORMA CRESCENTE (max 100)"); //mudar o valor maximo na definição de tam
+    printf("DIGITE UM NUMERO PARA ORDENAR SEUS ANTECESSORES EM FORMA CRESCENTE (max 100)"); //mudar o valor maximo na definiÃ§Ã£o de tam
     scanf("%d",&n1);
 
     n1=ordemcrescente(n1);
